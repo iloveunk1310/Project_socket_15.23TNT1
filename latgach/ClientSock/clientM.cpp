@@ -58,7 +58,7 @@ int connect_and_receive(sockaddr_in srv, const char* ipaddr, string ref, int len
 		cout << "Res from server: " << sBuff << endl;
 	//dieu chinh file test
 	string x;
-	if (lenh == 1 || lenh == 3)
+	if (lenh == 1 || lenh == 3 || lenh == 99 || lenh == 9)
 		x = "result.txt";
 	if (lenh == 5 || lenh == 2)
 		x = "result.png";

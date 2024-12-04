@@ -96,14 +96,33 @@ int connet_and_send_file(sockaddr_in srv, int lenh=0) {
 			fileSend = "D:\\ListService2.txt";
 		}
 		else if (sBuff[length - 1] == '2') {
-			string app = "";
-			for (int i = 0; i < length - 2; i++)
-				app += sBuff[i];
-			app += ".exe";
-			StartApp((const string)app);
-			Sleep(1000);
-			Screenshot();
-			fileSend = "D:\\chaymanhinh2.png";
+			if (sBuff[length - 2] != '2') {
+				string app = "";
+				for (int i = 0; i < length - 2; i++)
+					app += sBuff[i];
+				app += ".exe";
+				StartApp((const string)app);
+				Sleep(1000);
+				Screenshot();
+				fileSend = "D:\\chaymanhinh2.png";
+			}
+			else {
+				string app = "";
+				for (int i = 0; i < length - 3; i++)
+					app += sBuff[i];
+				fileSend = "StopApp.txt";
+				StopApp(app, fileSend);
+			}
+		}
+		else if (sBuff[length - 1] == '9') {
+			if (sBuff[length - 2] == '9') {
+				MoveFilez(sBuff, length);
+				fileSend = "MoveFile.txt";
+			}
+			else {
+				CopyFileZ(sBuff, length);
+				fileSend = "CopyFile.txt";
+			}
 		}
 		int nSend = send(nClient, "ok", strlen(sBuff), 0);
 		if (nSend < 0) {

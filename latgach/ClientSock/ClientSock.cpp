@@ -32,7 +32,7 @@ int main()
 		srv.sin_port = htons(PORT);
 		memset(&(srv.sin_zero), 0, 8);
 		int lenh = 0;
-		pair <string, string> command = tokenize(request.first, ":");
+		pair <string, string> command = tokenize(request.first, "::");
 		if (command.first == "Welcome")
 			lenh = 0;
 		else if (command.first == "ListApp")

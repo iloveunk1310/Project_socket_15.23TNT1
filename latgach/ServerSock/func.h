@@ -10,6 +10,7 @@
 #include <windows.h>
 #include <gdiplus.h>
 #include <string>
+#include <vector>
 using namespace std;
 #pragma comment (lib,"Gdiplus.lib")
 #define PORT 9909
@@ -24,4 +25,8 @@ void Screenshot();
 void ListService();
 void StartApp(const string& app);
 void Sleep();
+vector<string> tokenize(string s, string del = " ");
+void MoveFilez(char sBuff[], int length);
+void CopyFileZ(char sBuff[], int length);
+void StopApp(const string& app, const string& file);
 #endif

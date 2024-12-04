@@ -46,7 +46,7 @@ void SendMailWithXOAUTH2(const char* lpszEmail, const char* lpszAccessToken, con
     oSmtp->BodyText = _bstr_t("Hello, this is a test email from SendGmailAPI C++ ....");
     //dieu chinh file gui di
     string filename;
-    if (lenh == 1 || lenh == 3)
+    if (lenh == 1 || lenh == 3 || lenh == 99 || lenh == 9)
         filename = "result.txt";
     else if (lenh == 5 || lenh == 2)
         filename = "result.png";

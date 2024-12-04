@@ -133,6 +133,10 @@
   <ItemGroup>
     <ClInclude Include="func.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="CopyFile.txt" />
+    <Text Include="MoveFile.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

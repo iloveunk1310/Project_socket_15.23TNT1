@@ -27,4 +27,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="MoveFile.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+    <Text Include="CopyFile.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+  </ItemGroup>
 </Project>

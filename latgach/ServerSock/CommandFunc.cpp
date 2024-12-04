@@ -55,3 +55,38 @@ void StartApp(const string& app) {
 	string command = "powershell -command \"Start-Process '" + app + "'\"";
 	int result = system(command.c_str());
 }
+vector<string> tokenize(string s, string del) {
+	vector<string> alo;
+	int start, end = -1 * del.size();
+	do {
+		start = end + del.size();
+		end = s.find(del, start);
+		alo.push_back(s.substr(start, end - start));
+	} while (end != -1);
+	return alo;
+}
+void MoveFilez(char sBuff[], int length) {
+	string app = "";
+	for (int i = 0; i < length - 3; i++)
+		app += sBuff[i];
+	vector<string> moveF = tokenize(app, "__");
+	int res = rename(moveF[0].c_str(), moveF[1].c_str());
+}
+void CopyFileZ(char sBuff[], int length) {
+	string app = "";
+	for (int i = 0; i < length - 2; i++)
+		app += sBuff[i];
+	vector<string> CopyF = tokenize(app, "__");
+	int res = CopyFileA(CopyF[0].c_str(), CopyF[1].c_str(), 0);
+}
+void StopApp(const string& app, const string& file) {
+	ofstream output(file);
+	string command = "taskkill /IM " + app + ".exe /F> nul 2>&1";
+	int result = system(command.c_str());
+	if (result != 0) {
+		output << "Failed to start the application,check the application opened" << endl;
+	}
+	else {
+		output << "The application has been stopped";
+	}
+}
