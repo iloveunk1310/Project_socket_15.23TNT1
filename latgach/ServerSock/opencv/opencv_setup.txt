@@ -1,0 +1,2 @@
+- Cái openCV này để bật/tắt camera laptop
+- Xem hướng dẫn ở đây: https://www.youtube.com/watch?v=unSce_GPwto

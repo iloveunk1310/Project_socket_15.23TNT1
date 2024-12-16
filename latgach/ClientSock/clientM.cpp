@@ -58,12 +58,25 @@ int connect_and_receive(sockaddr_in srv, const char* ipaddr, string ref, int len
 		cout << "Res from server: " << sBuff << endl;
 	//dieu chinh file test
 	string x;
-	if (lenh == 1 || lenh == 3 || lenh == 99 || lenh == 9)
+	if (lenh == 1 || lenh == 3 || lenh == 99 || lenh == 9 || lenh == 88 || lenh == 22)
 		x = "result.txt";
-	if (lenh == 5 || lenh == 2)
-		x = "result.png";
-	if (lenh == 77)
+	if (lenh == 5 || lenh == 2 || lenh == 6)
+		x = "result.bmp";
+	if (lenh == 77 || lenh == 7)
 		x = "shutdown.txt";
+		
+	if (lenh == 8) {
+		ofstream outFile("takefile.txt");
+		if (!outFile) {
+			cout << "Error: Could not open the file for writing." << std::endl;
+			return -1;
+		}
+		/*pair<string, string> temp = tokenize((string)sBuff, "\\");
+		cout << temp.second << endl;*/
+		outFile << "res.jpg";
+		outFile.close();
+		x = "res.jpg";
+	}
 	const char* filename = x.c_str();
 	readfile(nSocket, filename);
 	closesocket(nSocket);

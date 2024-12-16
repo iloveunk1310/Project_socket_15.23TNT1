@@ -16,8 +16,6 @@ int main()
 	pair <string, string> request;
 	while (1) {
 		DoOauthAndRetrieveEmail("12345", maildich, temp, request);
-		if (temp)
-			temp = !temp;
 		struct sockaddr_in srv;
 		WSADATA ws;
 		int nRET = 0;
@@ -33,7 +31,7 @@ int main()
 		memset(&(srv.sin_zero), 0, 8);
 		int lenh = 0;
 		pair <string, string> command = tokenize(request.first, "::");
-		if (command.first == "Welcome")
+		if (command.first == "Help")
 			lenh = 0;
 		else if (command.first == "ListApp")
 			lenh = 1;
@@ -51,14 +49,14 @@ int main()
 			lenh = 5;
 		else if (command.first == "StartCam")
 			lenh = 6;
-		else if (command.first == "StopCam")
-			lenh = 66;
 		else if (command.first == "Shutdown")
 			lenh = 7;
 		else if (command.first == "Sleep")
 			lenh = 77;
 		else if (command.first == "TakeFile")
 			lenh = 8;
+		else if (command.first == "DeleteFile")
+			lenh = 88;
 		else if (command.first == "CopyFile")
 			lenh = 9;
 		else if (command.first == "MoveFile")
@@ -67,7 +65,9 @@ int main()
 		command.second += ":" + to_string(lenh);
 		int t = connect_and_receive(srv, request.second.c_str(), command.second, lenh);
 		cout << maildich << ": mail nhan" << endl;
-		DoOauthAndSendEmail(maildich.c_str(), lenh);
+		DoOauthAndSendEmail(maildich.c_str(), temp, lenh);
+		if (temp)
+			temp = !temp;
 	}
 }
 

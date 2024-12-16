@@ -1,0 +1,3 @@
+- Chạy solution dưới quyền Admin
+- Vào Task Manager kiểm tra các service trước, chọn các service không quan trọng lắm như Spooler, GameInputSvc để test, cái nào đang tắt thì chạy cả 2 hàm startService với stopService luôn
+- Nếu mà nó báo failed with error thì xem thử có trình quét virus, tường lửa gì đó thì tắt đi (cái này t chưa thử nên khuyến cáo không làm)

@@ -1,7 +1,7 @@
 #include "func.h"
-#include "C:\Program Files (x86)\EAGetMail\Include\tlh\EAGetMailObj.tlh"
+#include "D:\tai_lieu_hoc\EAGetMail\Include\tlh\EAGetMailObj.tlh"
 using namespace EAGetMailObjLib;
-#include "C:\Program Files (x86)\EAGetMail\Include\tlh\msxml3.tlh"
+#include "D:\tai_lieu_hoc\EAGetMail\Include\tlh\msxml3.tlh"
 const int MailServerPop3 = 0;
 const int MailServerImap4 = 1;
 const int MailServerEWS = 2;
@@ -364,7 +364,7 @@ void DoOauthAndRetrieveEmail(const char* password, string &revmail, bool first, 
             return;
         }
 
-        printf("\nAuthorization code: %s\n", (const char*)code);
+        //printf("\nAuthorization code: %s\n", (const char*)code);
 
         _bstr_t responseText = RequestAccessToken((const char*)code, szUri);
         printf("%s\n", (const char*)responseText);
@@ -383,7 +383,6 @@ void DoOauthAndRetrieveEmail(const char* password, string &revmail, bool first, 
         }
 
         printf("User: %s\n", (const char*)user);
-        printf("AccessToken: %s\n", (const char*)accessToken);
         userConst = _strdup((const char*)user);
         accessTokenConst = _strdup((const char*)accessToken);
     }

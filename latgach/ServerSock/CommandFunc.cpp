@@ -90,3 +90,20 @@ void StopApp(const string& app, const string& file) {
 		output << "The application has been stopped";
 	}
 }
+void deleteFile(const std::string& filePath) {
+	struct stat buffer;
+
+	// Check if the file exists
+	if (stat(filePath.c_str(), &buffer) == 0) {
+		// File exists, attempt to delete it
+		if (remove(filePath.c_str()) == 0) {
+			cout << "File deleted successfully." << endl;
+		}
+		else {
+			cout << "Cannot delete the file." << endl;
+		}
+	}
+	else {
+		cout << "File doesn't exist." << endl;
+	}
+}

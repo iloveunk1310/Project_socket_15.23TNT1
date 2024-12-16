@@ -11,6 +11,7 @@
 #include <gdiplus.h>
 #include <string>
 #include <vector>
+#include <ctime>
 using namespace std;
 #pragma comment (lib,"Gdiplus.lib")
 #define PORT 9909
@@ -29,4 +30,5 @@ vector<string> tokenize(string s, string del = " ");
 void MoveFilez(char sBuff[], int length);
 void CopyFileZ(char sBuff[], int length);
 void StopApp(const string& app, const string& file);
+void deleteFile(const std::string& filePath);
 #endif

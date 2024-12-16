@@ -104,7 +104,7 @@ int connet_and_send_file(sockaddr_in srv, int lenh=0) {
 				StartApp((const string)app);
 				Sleep(1000);
 				Screenshot();
-				fileSend = "D:\\chaymanhinh2.png";
+				fileSend = "screenshot.bmp";
 			}
 			else {
 				string app = "";

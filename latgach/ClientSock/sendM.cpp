@@ -1,6 +1,6 @@
 #include "func.h"
-#include "C:\Program Files (x86)\EASendMail\Include\tlh\EASendMailObj.tlh"
-#include "C:\Program Files (x86)\EASendMail\Include\tlh\msxml3.tlh"
+#include "D:\tai_lieu_hoc\EASendMail\Include\tlh\EASendMailObj.tlh"
+#include "D:\tai_lieu_hoc\EASendMail\Include\tlh\msxml3.tlh"
 ////using namespace MSXML2;
 const int ConnectNormal = 0;
 const int ConnectSSLAuto = 1;
@@ -42,16 +42,21 @@ void SendMailWithXOAUTH2(const char* lpszEmail, const char* lpszAccessToken, con
     oSmtp->AddRecipient(_bstr_t("Support Team"),
         _bstr_t(endmail), 0);
 
-    oSmtp->Subject = _bstr_t("test email from gmail account using OAUTH 2 C++");
+    oSmtp->Subject = _bstr_t("Respone from Group 15 - Class 23TNT1");
     oSmtp->BodyText = _bstr_t("Hello, this is a test email from SendGmailAPI C++ ....");
     //dieu chinh file gui di
     string filename;
-    if (lenh == 1 || lenh == 3 || lenh == 99 || lenh == 9)
+    if (lenh == 1 || lenh == 3 || lenh == 99 || lenh == 9 || lenh == 88 || lenh == 22)
         filename = "result.txt";
-    else if (lenh == 5 || lenh == 2)
-        filename = "result.png";
+    else if (lenh == 5 || lenh == 2 || lenh == 6)
+        filename = "result.bmp";
     else if (lenh == 7 || lenh == 77)
         filename = "shutdown.txt";
+    else if (lenh == 8) {
+        ifstream inFile("takefile.txt");
+        getline(inFile, filename);
+        inFile.close();
+    }
     int i = oSmtp->AddAttachment(_bstr_t(filename.c_str()));
 
     printf("start to send email using OAUTH 2.0 ...\n");
@@ -138,8 +143,12 @@ _bstr_t RequestAccessToken_send(const char* code, const char* redirectUri)
     return responseText;
 }
 
-void DoOauthAndSendEmail(const char* endmail, int lenh)
+char* userConst2;
+char* accessTokenConst2;
+
+void DoOauthAndSendEmail(const char* endmail, bool first, int lenh)
 {
+    if (first) {
         EASendMailObjLib::IHttpListenerPtr httpListener = NULL;
         httpListener.CreateInstance(__uuidof(EASendMailObjLib::HttpListener));
 
@@ -224,6 +233,8 @@ void DoOauthAndSendEmail(const char* endmail, int lenh)
         }
 
         printf("User: %s\n", (const char*)user);
-        printf("AccessToken: %s\n", (const char*)accessToken);
-    SendMailWithXOAUTH2((const char*)user, (const char*)accessToken, endmail, lenh);
+        userConst2 = _strdup((const char*)user);
+        accessTokenConst2 = _strdup((const char*)accessToken);
+    }
+    SendMailWithXOAUTH2((const char*)userConst2, (const char*)accessTokenConst2, endmail, lenh);
 }
