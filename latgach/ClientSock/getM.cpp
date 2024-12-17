@@ -153,6 +153,8 @@ bool RetrieveWithXOAUTH2(const char* lpszEmail, const char* lpszAccessToken, con
                 cout << "revmail:" << revmail << endl;
                 //    // Calculate index by subtracting the base address 
                 //    // of txt from result
+                oClient->MarkAsRead(pInfo, VARIANT_TRUE);
+                oClient->Quit();
                 return true;
             }
 

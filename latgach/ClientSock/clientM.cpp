@@ -58,12 +58,14 @@ int connect_and_receive(sockaddr_in srv, const char* ipaddr, string ref, int len
 		cout << "Res from server: " << sBuff << endl;
 	//dieu chinh file test
 	string x;
-	if (lenh == 1 || lenh == 3 || lenh == 99 || lenh == 9 || lenh == 88 || lenh == 22)
+	if (lenh == 1 || lenh == 3 || lenh == 99 || lenh == 9 || lenh == 88 || lenh == 22 || lenh == 4 || lenh == 44)
 		x = "result.txt";
-	if (lenh == 5 || lenh == 2 || lenh == 6)
+	if (lenh == 5 || lenh == 2)
 		x = "result.bmp";
 	if (lenh == 77 || lenh == 7)
 		x = "shutdown.txt";
+	if (lenh == 6)
+		x = "result.mp4";
 		
 	if (lenh == 8) {
 		ofstream outFile("takefile.txt");

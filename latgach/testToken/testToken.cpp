@@ -11,6 +11,8 @@
 #include <iomanip>
 #include <sstream>
 #include <ctime>
+#include <chrono>
+#include <thread>
 using namespace std;
 std::string get_current_time_and_date() {
     std::time_t now = std::time(nullptr);
@@ -123,12 +125,9 @@ void add_to_start(const std::string& path, const std::string& s) {
     outputFile.close();
 }
 int main() {
-    const std::string filePath = "example.txt";
-    std::string lineToAdd = "This is the new first line.";
-    string s = get_current_time_and_date();
-    lineToAdd += s;
-    add_to_start(filePath, lineToAdd);
-
-    std::cout << "Line added to the start of the file." << std::endl;
+    string str = "msiserver";
+    std::wstring str2(str.length(), L' ');
+    std::copy(str.begin(), str.end(), str2.begin());
+    startService(str2);
     return 0;
 }

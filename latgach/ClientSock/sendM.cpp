@@ -43,13 +43,15 @@ void SendMailWithXOAUTH2(const char* lpszEmail, const char* lpszAccessToken, con
         _bstr_t(endmail), 0);
 
     oSmtp->Subject = _bstr_t("Respone from Group 15 - Class 23TNT1");
-    oSmtp->BodyText = _bstr_t("Hello, this is a test email from SendGmailAPI C++ ....");
+    oSmtp->BodyText = _bstr_t("Hello, this is auto-respone to inform you about your request at server.");
     //dieu chinh file gui di
     string filename;
-    if (lenh == 1 || lenh == 3 || lenh == 99 || lenh == 9 || lenh == 88 || lenh == 22)
+    if (lenh == 1 || lenh == 3 || lenh == 99 || lenh == 9 || lenh == 88 || lenh == 22 || lenh == 4 || lenh == 44)
         filename = "result.txt";
-    else if (lenh == 5 || lenh == 2 || lenh == 6)
+    else if (lenh == 5 || lenh == 2)
         filename = "result.bmp";
+    else if (lenh == 6)
+        filename = "result.mp4";
     else if (lenh == 7 || lenh == 77)
         filename = "shutdown.txt";
     else if (lenh == 8) {
@@ -57,6 +59,8 @@ void SendMailWithXOAUTH2(const char* lpszEmail, const char* lpszAccessToken, con
         getline(inFile, filename);
         inFile.close();
     }
+    if (lenh == 0)
+        filename = "Help.docx";
     int i = oSmtp->AddAttachment(_bstr_t(filename.c_str()));
 
     printf("start to send email using OAUTH 2.0 ...\n");

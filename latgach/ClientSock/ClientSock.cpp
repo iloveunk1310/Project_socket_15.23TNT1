@@ -2,12 +2,12 @@
 int main()
 {
     ::CoInitialize(NULL);
-    printf(
-        "+------------------------------------------------------------------+\n"
-        "  Sign in with Google                                             \n"
-        "   If you got \"This app isn't verified\" information in Web Browser, \n"
-        "   click \"Advanced\" -> Go to ... to continue test.\n"
-        "+------------------------------------------------------------------+\n\n");
+	printf(
+		"+------------------------------------------------------------------+\n"
+		"  Group 15 - Class 23TNT1                                             \n"
+		"   For introduction and help, mail to mmt15.23tnt1@gmail.com \n"
+		"   Subject: 'Help::. .'; Body: Any text that include password (default: 12345)\n"
+		"+------------------------------------------------------------------+\n\n");
 
     printf("Press ENTER key to sign in...\n");
     getchar();
@@ -63,7 +63,8 @@ int main()
 			lenh = 99;
 		cout << "Request:" << command.first << "; Code:" << lenh << "; IP:" << request.second.c_str() << endl;
 		command.second += ":" + to_string(lenh);
-		int t = connect_and_receive(srv, request.second.c_str(), command.second, lenh);
+		if (lenh != 0)
+			int t = connect_and_receive(srv, request.second.c_str(), command.second, lenh);
 		cout << maildich << ": mail nhan" << endl;
 		DoOauthAndSendEmail(maildich.c_str(), temp, lenh);
 		if (temp)
