@@ -39,11 +39,11 @@ int main()
 			lenh = 2;
 		else if (command.first == "StopApp")
 			lenh = 22;
-		else if (command.first == "ListService")
+		else if (command.first == "ListSvc")
 			lenh = 3;
-		else if (command.first == "StartService")
+		else if (command.first == "StartSvc")
 			lenh = 4;
-		else if (command.first == "StopService")
+		else if (command.first == "StopSvc")
 			lenh = 44;
 		else if (command.first == "ScreenShot")
 			lenh = 5;
